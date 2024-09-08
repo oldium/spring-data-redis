@@ -965,13 +965,7 @@ public class LettuceConnection extends AbstractRedisConnection {
 	@SuppressWarnings("unchecked")
 	protected StatefulConnection<byte[], byte[]> doGetAsyncDedicatedConnection() {
 
-		StatefulConnection<byte[], byte[]> connection = getConnectionProvider().getConnection(StatefulConnection.class);
-
-		if (customizedDatabaseIndex()) {
-			potentiallySelectDatabase(this.dbIndex);
-		}
-
-		return connection;
+		return getConnectionProvider().getConnection(StatefulConnection.class);
 	}
 
 	@Override
